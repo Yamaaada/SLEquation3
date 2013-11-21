@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "COINSKeyboard.h"
 
-@interface COINSViewController : UIViewController {
+@interface COINSViewController : UIViewController <COINSKeyboardDelegate> {
 	// インスタンス変数にします
 	NSInteger n1, n2; // intではなく、NSIntegerを用いると都合が良い
 	NSInteger answer;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *displayLabel;
+@property (weak, nonatomic) IBOutlet COINSKeyboard *keyboard;
+@property (weak, nonatomic) IBOutlet UILabel *answerLabel;
 
 - (IBAction)createAction:(id)sender;
 - (IBAction)calculateAction:(id)sender;

@@ -21,6 +21,9 @@
 @implementation COINSViewController
 
 @synthesize displayLabel; // プロパティを.mファイルで使えるようにする
+@synthesize keyboard;
+
+@synthesize answerLabel;
 
 - (void)viewDidLoad
 {
@@ -32,6 +35,13 @@
 	NSLog(@"n1 = %d", n1); //ログで何を表示しているか確認できるようにしましょう
 	NSLog(@"n2 = %d", n2);
 	NSLog(@"ans = %d", answer);
+    
+    NSArray *titles = @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"OK", @"x"];
+    NSString *outCharacters = @"0123456789ox";
+    [keyboard updateButtonsWithRow:3 column:4 titles:titles outCharacters:outCharacters style:COINSKeyboardStyleBlackboard];
+    keyboard.delegate = self;
+    
+    answerLabel.text = @"";
 	
 	/*
      // ラベルの名前に意味をもたせよう
@@ -61,5 +71,9 @@
 	Equation *equation = [[Equation alloc] init];
 	answer = [equation finishWithInteger:n1 WithInteger:n2];
 	displayLabel.text = [NSString stringWithFormat:@"x = %d", answer];
+}
+
+- (void)input:(unichar)c {
+    answerLabel.text = [answerLabel.text stringByAppendingFormat:@"%c", c];
 }
 @end

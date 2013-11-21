@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		62178CAC183DC9B6009A2204 /* Equation.m in Sources */ = {isa = PBXBuildFile; fileRef = 62178CAB183DC9B6009A2204 /* Equation.m */; };
+		626CCAB9183DCD5100CF04A4 /* COINSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 626CCAB8183DCD5100CF04A4 /* COINSKeyboard.m */; };
 		628D41D9183DC79C00D36354 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628D41D8183DC79C00D36354 /* Foundation.framework */; };
 		628D41DB183DC79C00D36354 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628D41DA183DC79C00D36354 /* CoreGraphics.framework */; };
 		628D41DD183DC79C00D36354 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 628D41DC183DC79C00D36354 /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 /* Begin PBXFileReference section */
 		62178CAA183DC9B6009A2204 /* Equation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equation.h; sourceTree = "<group>"; };
 		62178CAB183DC9B6009A2204 /* Equation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Equation.m; sourceTree = "<group>"; };
+		626CCAB7183DCD5100CF04A4 /* COINSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COINSKeyboard.h; sourceTree = "<group>"; };
+		626CCAB8183DCD5100CF04A4 /* COINSKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COINSKeyboard.m; sourceTree = "<group>"; };
 		628D41D5183DC79C00D36354 /* SLEquation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLEquation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		628D41D8183DC79C00D36354 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		628D41DA183DC79C00D36354 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,6 +120,8 @@
 		628D41DE183DC79C00D36354 /* SLEquation */ = {
 			isa = PBXGroup;
 			children = (
+				626CCAB7183DCD5100CF04A4 /* COINSKeyboard.h */,
+				626CCAB8183DCD5100CF04A4 /* COINSKeyboard.m */,
 				62178CAA183DC9B6009A2204 /* Equation.h */,
 				62178CAB183DC9B6009A2204 /* Equation.m */,
 				628D41E7183DC79C00D36354 /* COINSAppDelegate.h */,
@@ -260,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				628D41E5183DC79C00D36354 /* main.m in Sources */,
+				626CCAB9183DCD5100CF04A4 /* COINSKeyboard.m in Sources */,
 				628D41F2183DC79C00D36354 /* COINSViewController.m in Sources */,
 				628D41E9183DC79C00D36354 /* COINSAppDelegate.m in Sources */,
 				62178CAC183DC9B6009A2204 /* Equation.m in Sources */,

@@ -43,6 +43,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3y-nb-FFv" customClass="COINSKeyboard">
+                                <rect key="frame" x="10" y="630" width="748" height="384"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2L6-Ve-tjg">
+                                <rect key="frame" x="361" y="546" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -50,14 +62,20 @@
                             <constraint firstAttribute="centerX" secondItem="htb-9J-r5W" secondAttribute="centerX" id="4Qs-BU-Ghe"/>
                             <constraint firstItem="Fy2-oA-mzH" firstAttribute="top" secondItem="htb-9J-r5W" secondAttribute="bottom" constant="40" id="CUU-t9-dov"/>
                             <constraint firstAttribute="trailing" secondItem="Fy2-oA-mzH" secondAttribute="trailing" constant="10" id="S8s-wO-5w9"/>
+                            <constraint firstAttribute="trailing" secondItem="J3y-nb-FFv" secondAttribute="trailing" constant="10" id="UhD-at-WbZ"/>
                             <constraint firstAttribute="centerX" secondItem="I0G-CJ-92y" secondAttribute="centerX" id="XNB-i8-2nt"/>
                             <constraint firstItem="I0G-CJ-92y" firstAttribute="top" secondItem="Fy2-oA-mzH" secondAttribute="bottom" constant="40" id="XTq-E2-m72"/>
                             <constraint firstItem="Fy2-oA-mzH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="bPq-FI-cyF"/>
                             <constraint firstAttribute="centerY" secondItem="Fy2-oA-mzH" secondAttribute="centerY" id="dTQ-vz-DkS"/>
+                            <constraint firstItem="brP-mP-itK" firstAttribute="top" secondItem="J3y-nb-FFv" secondAttribute="bottom" constant="10" id="fYY-Yy-dTS"/>
+                            <constraint firstItem="J3y-nb-FFv" firstAttribute="top" secondItem="I0G-CJ-92y" secondAttribute="bottom" constant="30" id="hpO-gM-Wfg"/>
+                            <constraint firstItem="J3y-nb-FFv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="ptz-P1-2qx"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="answerLabel" destination="2L6-Ve-tjg" id="QYw-Ya-iPi"/>
                         <outlet property="displayLabel" destination="Fy2-oA-mzH" id="SuX-wS-SxF"/>
+                        <outlet property="keyboard" destination="J3y-nb-FFv" id="yt5-cN-Dsv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
