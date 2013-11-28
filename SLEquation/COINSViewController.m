@@ -14,11 +14,13 @@
 #import "COINSViewController.h"
 #import "Equation.h"
 
-@interface COINSViewController ()
 
-@end
-
-@implementation COINSViewController
+@implementation COINSViewController {
+	// インスタンス変数にします
+	NSInteger n1, n2; // intではなく、NSIntegerを用いると都合が良い
+	NSInteger answer;
+    Equation *equation;
+}
 
 @synthesize displayLabel; // プロパティを.mファイルで使えるようにする
 @synthesize keyboard;
@@ -62,18 +64,30 @@
 }
 
 - (IBAction)createAction:(id)sender {
-	n1 = rand() % 50 + 1; // 演算子の前後にはスペースを入れると見やすいです
+	equation = [[Equation alloc] init];
+    n1 = rand() % 50 + 1; // 演算子の前後にはスペースを入れると見やすいです
 	n2 = rand() % 50 + 1;
 	displayLabel.text = [NSString stringWithFormat:@"x + %d = %d", n1, n2];
 }
 
 - (IBAction)calculateAction:(id)sender {
-	Equation *equation = [[Equation alloc] init];
 	answer = [equation finishWithInteger:n1 WithInteger:n2];
 	displayLabel.text = [NSString stringWithFormat:@"x = %d", answer];
 }
 
 - (void)input:(unichar)c {
-    answerLabel.text = [answerLabel.text stringByAppendingFormat:@"%c", c];
+    if (c == 'o') {
+        [self calculateAction:nil];
+        
+    } else {
+        answerLabel.text = [answerLabel.text stringByAppendingFormat:@"%c", c];
+        
+    }
+
 }
+- (void)getCharacters:(unichar )answerLabel range:(NSRange)aRange {
+    
+}
+
+
 @end
