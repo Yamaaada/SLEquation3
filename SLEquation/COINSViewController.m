@@ -6,10 +6,6 @@
 //  Copyright (c) 2013年 Haruka. All rights reserved.
 //
 
-/* 飯島
- 編集、アドバイスを開始しました(Oct 30)
- 
- */
 
 #import "COINSViewController.h"
 #import "Equation.h"
@@ -17,26 +13,31 @@
 
 @implementation COINSViewController {
 	// インスタンス変数にします
-	NSInteger n1, n2; // intではなく、NSIntegerを用いると都合が良い
-	NSInteger answer;
-    Equation *equation;
+	NSInteger a, b, c ,target ,count , countOk, countAnswer; // intではなく、NSIntegerを用いると都合が良い
+	NSInteger answerX, answerY;
+    EquationY *equationY;
+    EquationX *equationX;
 }
 
-@synthesize displayLabel; // プロパティを.mファイルで使えるようにする
-@synthesize keyboard;
+@synthesize displayLabel,displayLabel2;
 
-@synthesize answerLabel;
+@synthesize keyboard,correctTimes;
+
+@synthesize answerLabel,answerLabel2;
 
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
-	srand(time(NULL)); //(応用)これはC言語の関数なのでnilではなく、NULLにします
+	srand(time(NULL)); 
     
-	NSLog(@"n1 = %d", n1); //ログで何を表示しているか確認できるようにしましょう
-	NSLog(@"n2 = %d", n2);
-	NSLog(@"ans = %d", answer);
+	NSLog(@"n1 = %d", a);
+	NSLog(@"n2 = %d", b);
+    NSLog(@"n3 = %d", c);
+    NSLog(@"count = %d", count);
+    NSLog(@"ansX = %d", answerX);
+	NSLog(@"ansY = %d", answerY);
     
     NSArray *titles = @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"OK", @"x"];
     NSString *outCharacters = @"0123456789ox";
@@ -44,16 +45,8 @@
     keyboard.delegate = self;
     
     answerLabel.text = @"";
+    answerLabel2.text = @"x = , y = ";
 	
-	/*
-     // ラベルの名前に意味をもたせよう
-     UILabel *answerLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 200, 60)];
-     answerLabel.font = [UIFont systemFontOfSize:60];
-     answerLabel.text = [NSString stringWithFormat:@"%d", answer]; // x + n1 = n2 を表示したいよー
-     answerLabel.textAlignment = NSTextAlignmentCenter;
-     answerLabel.textColor = [UIColor redColor];
-     [self.view addSubview:answerLabel];
-	 */
 }
 
 
@@ -64,28 +57,67 @@
 }
 
 - (IBAction)createAction:(id)sender {
-	equation = [[Equation alloc] init];
-    n1 = rand() % 50 + 1; // 演算子の前後にはスペースを入れると見やすいです
-	n2 = rand() % 50 + 1;
-	displayLabel.text = [NSString stringWithFormat:@"x + %d = %d", n1, n2];
+    countOk = 0;
+	equationX = [[EquationX alloc] init];
+    equationY = [[EquationY alloc] init];
+    answerLabel.text = @"";
+    answerLabel2.text = @"x = ";
+    
+
+    do {
+        a = rand() % 50 + 1;
+        b = rand() % 50 + 1;
+        NSMutableArray *divisor = [NSMutableArray array];
+        [divisor addObject:[NSNumber numberWithInt:1]];
+        count = 1;
+        for (int i = 1; b - a - i > 0; i++) {
+            if (abs(b - a) % abs(b - a - i) == 0) {
+                [divisor addObject:@(b - a - i + 1)];
+                count++;
+            }
+        }
+        target = rand() % count;
+        c = [divisor[target] intValue];
+    
+    } while (c == 1);
+    
+    displayLabel.text = [NSString stringWithFormat:@"x + %dy = %d", c, b];
+    displayLabel2.text = [NSString stringWithFormat:@"x + y = %d", a];
 }
 
 - (IBAction)calculateAction:(id)sender {
-	answer = [equation finishWithInteger:n1 WithInteger:n2];
-	displayLabel.text = [NSString stringWithFormat:@"x = %d", answer];
-}
-
-- (void)input:(unichar)c {
-    if (c == 'o') {
-        [self calculateAction:nil];
-        
-    } else {
-        answerLabel.text = [answerLabel.text stringByAppendingFormat:@"%c", c];
-        
+    answerX = [equationX finishWithInteger:a WithInteger:b WithInteger:c];
+	answerY = [equationY finishWithInteger:a WithInteger:b WithInteger:c];
+	answerLabel.text = [NSString stringWithFormat:@"x = %d, y = %d", answerX, answerY];
+    if (answerLabel.text == answerLabel2.text) {
+            countAnswer++;
     }
-
+    correctTimes.text = [NSString stringWithFormat:@"%d", countAnswer];
+    
 }
-- (void)getCharacters:(unichar )answerLabel range:(NSRange)aRange {
+
+- (void)input:(unichar)key {
+
+    switch (key) {
+        case 'o':
+            countOk++;
+            if (countOk == 1) {
+            answerLabel2.text = [answerLabel2.text stringByAppendingString:@", y = "];
+            } /*else if (countOk == 2) {
+                [self calculateAction:わからん];
+            }*/
+            break;
+        case 'x':
+            if (answerLabel2.text.length > 0) {
+                answerLabel2.text = [answerLabel2.text substringToIndex:answerLabel2.text.length - 1];
+            }
+            break;
+            
+        default:
+            answerLabel2.text = [answerLabel2.text stringByAppendingFormat:@"%c", key];
+            break;
+    }
+  
     
 }
 

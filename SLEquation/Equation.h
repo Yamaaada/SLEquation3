@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Equation : NSObject
+@interface EquationY : NSObject
 
 // メソッド名にaやbの属性や性質を記述するようにしましょう
-- (NSInteger)finishWithInteger:(NSInteger)a WithInteger:(NSInteger)b;
+- (NSInteger)finishWithInteger:(NSInteger)a WithInteger:(NSInteger)b WithInteger:(NSInteger)c;
+
+@end
+
+
+@interface EquationX : NSObject
+- (NSInteger)finishWithInteger:(NSInteger)a WithInteger:(NSInteger)b WithInteger:(NSInteger)c;
+
 
 @end

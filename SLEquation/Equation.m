@@ -8,11 +8,19 @@
 
 #import "Equation.h"
 
-@implementation Equation
+@implementation EquationY
 
-- (NSInteger)finishWithInteger:(NSInteger)a WithInteger:(NSInteger)b
+- (NSInteger)finishWithInteger:(NSInteger)a WithInteger:(NSInteger)b WithInteger:(NSInteger)c
 {
-    return b - a;
+    return (b - a) / (c - 1);
+}
+@end
+
+@implementation EquationX
+
+- (NSInteger)finishWithInteger:(NSInteger)a WithInteger:(NSInteger)b WithInteger:(NSInteger)c
+{
+    return a - (b - a) / (c - 1);
 }
 
 @end
