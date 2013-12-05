@@ -26,7 +26,7 @@
                                     <action selector="createAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hJz-oy-miU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0G-CJ-92y">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0G-CJ-92y">
                                 <rect key="frame" x="335" y="570" width="118" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Calculate">
@@ -85,6 +85,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="8UQ-vg-Xf3" secondAttribute="centerX" id="N5M-Vo-XtH"/>
+                            <constraint firstAttribute="centerX" secondItem="I0G-CJ-92y" secondAttribute="centerX" id="OfO-pK-eXZ"/>
                             <constraint firstAttribute="centerX" secondItem="Fy2-oA-mzH" secondAttribute="centerX" id="fHb-bh-RVr"/>
                             <constraint firstAttribute="centerX" secondItem="8UQ-vg-Xf3" secondAttribute="centerX" id="g5T-nB-VkN"/>
                             <constraint firstAttribute="centerX" secondItem="UZZ-Fn-wnq" secondAttribute="centerX" id="roR-AX-xpT"/>

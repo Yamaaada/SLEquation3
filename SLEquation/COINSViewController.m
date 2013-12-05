@@ -91,7 +91,7 @@
 	answerLabel.text = [NSString stringWithFormat:@"x = %d, y = %d", answerX, answerY];
     if (answerLabel.text == answerLabel2.text) {
             countAnswer++;
-    }
+    }//正解した回数を出したいけど出せてません！
     correctTimes.text = [NSString stringWithFormat:@"%d", countAnswer];
     
 }
@@ -101,8 +101,18 @@
     switch (key) {
         case 'o':
             countOk++;
+            /*bool foundY = false;
+            for(int i = 0; i < answerLabel.text.length; i++) {
+             if(answerLabel.text.charAt(i) == 'y'){//どうしよう。わからない
+             foundY = true;
+             break;
+              }
+             }
+             */
+             
             if (countOk == 1) {
             answerLabel2.text = [answerLabel2.text stringByAppendingString:@", y = "];
+                //yがあるときにyを出すってやりたい。文字列にyあるかないか探さないとー。どうやるんだっけ。考えます
             } /*else if (countOk == 2) {
                 [self calculateAction:わからん];
             }*/
